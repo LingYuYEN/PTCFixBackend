@@ -1,19 +1,18 @@
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routes.create import create_router
-from app.routes.read import read_router
-from app.routes.update import update_router
+from routes.create import create_router
+from routes.read import read_router
+from routes.update import update_router
 
+app = FastAPI()
 
-fastapi = FastAPI()
-
-fastapi.debug = True
+app.debug = True
 origins = [
     "*"
 ]
 
-fastapi.add_middleware(
+app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
@@ -21,10 +20,9 @@ fastapi.add_middleware(
     allow_headers=["*"],
 )
 
-fastapi.include_router(read_router, tags=['GET'])
-fastapi.include_router(create_router, tags=['POST'])
-fastapi.include_router(update_router, tags=['PUT'])
+app.include_router(read_router, tags=['GET'])
+app.include_router(create_router, tags=['POST'])
+app.include_router(update_router, tags=['PUT'])
 
 if __name__ == '__main__':
-
-    uvicorn.run('app.main:fastapi', host="127.0.0.1", port=5000, log_level="info", reload=True, workers=1)
+    uvicorn.run('main:app', host="127.0.0.1", port=5000, log_level="info", reload=True, workers=1)
