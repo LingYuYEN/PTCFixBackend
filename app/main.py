@@ -6,14 +6,14 @@ from app.routes.read import read_router
 from app.routes.update import update_router
 
 
-app = FastAPI()
+fastapi = FastAPI()
 
-app.debug = True
+fastapi.debug = True
 origins = [
     "*"
 ]
 
-app.add_middleware(
+fastapi.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
@@ -21,9 +21,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(read_router, tags=['GET'])
-app.include_router(create_router, tags=['POST'])
-app.include_router(update_router, tags=['PUT'])
+fastapi.include_router(read_router, tags=['GET'])
+fastapi.include_router(create_router, tags=['POST'])
+fastapi.include_router(update_router, tags=['PUT'])
 
 if __name__ == '__main__':
-    uvicorn.run('app.main:app', host="127.0.0.1", port=5000, log_level="info", reload=True, workers=1)
+
+    uvicorn.run('app.main:fastapi', host="127.0.0.1", port=5000, log_level="info", reload=True, workers=1)
