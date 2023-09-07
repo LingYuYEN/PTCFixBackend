@@ -1,15 +1,15 @@
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-# from routes.create import create_router
-# from routes.read import read_router
-# from routes.update import update_router
-from routes import create, read, update, delete
+from app.routes.create import create_router
+from app.routes.read import read_router
+from app.routes.update import update_router
+# from routes import create, read, update, delete
 
 app = FastAPI()
-read_router = read.read_router
-create_router = create.create_router
-update_router = update.update_router
+# read_router = read.read_router
+# create_router = create.create_router
+# update_router = update.update_router
 
 app.debug = True
 origins = [
