@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta
-from chinese_calendar import is_workday
+# from chinese_calendar import is_workday
 
 
 def data_serializer(data) -> dict:
@@ -50,8 +50,8 @@ def work_times(start_time_str, end_time_str):
     work_hours = timedelta(hours=0)
 
     while start_time < end_time:
-        if is_workday(start_time.date()):
-            work_hours += timedelta(hours=0.5)
+        # if is_workday(start_time.date()):
+        #     work_hours += timedelta(hours=0.5)
         start_time += timedelta(hours=0.5)
 
     return work_hours
