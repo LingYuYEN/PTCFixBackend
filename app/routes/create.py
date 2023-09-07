@@ -12,7 +12,7 @@ async def create_signin(signin: Signin):
     collection = db['members']
     myquery = {'account': signin.account}
     myCol = collection.find(myquery, {'_id': 0})
-    result = False if myCol.count() == 0 else True
+    result = False if myCol is None else True
     return {"status": "Ok", "data": result}
 
 
