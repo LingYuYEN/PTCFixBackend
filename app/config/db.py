@@ -8,5 +8,4 @@ url = f"mongodb+srv://{account}:{pwd}@cluster0.omkx4hi.mongodb.net/?retryWrites=
 db_connection = MongoClient(url)
 db = db_connection['ptc']
 # collection = db['fixInfos']
-
-db_connection.close()
+# db_connection.close()
