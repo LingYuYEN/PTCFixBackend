@@ -80,7 +80,8 @@ async def update_visit(modifyVisit: ModifyVisit):
     myQuery = {'_id': objInstance}
     newValues = {'$set': {
         'score': modifyVisit.score,
-        'isScore': True
+        'isScore': True,
+        'status': '結案'
     }}
     collection.update_one(myQuery, newValues)
     data = data_list_serializer(collection.find({"_id": objInstance}, {'_id': 0}))

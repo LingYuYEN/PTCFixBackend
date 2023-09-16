@@ -1,7 +1,6 @@
 from fastapi import APIRouter
 from schemas.schema import data_list_serializer
 from config.db import db
-# from config.db import collection
 from models.model import FixInfo, Member, Signin
 
 create_router = APIRouter()
