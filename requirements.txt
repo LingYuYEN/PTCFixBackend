@@ -1,5 +1,5 @@
 pymongo==4.5.0
-# starlette~=0.14.2
+starlette~=0.14.2
 pydantic==2.4.1
 fastapi==0.103.1
 uvicorn==0.22.0
