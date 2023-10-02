@@ -1,10 +1,9 @@
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routes.create import create_router
-from routes.read import read_router
-from routes.update import update_router
+from routes import read, create, update
 from config.ssl import generate_certificate
+
 app = FastAPI()
 
 app.debug = True
@@ -20,11 +19,13 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-app.include_router(read_router, tags=['GET'])
-app.include_router(create_router, tags=['POST'])
-app.include_router(update_router, tags=['PUT'])
+
+app.include_router(read.read_router, tags=['GET'])
+app.include_router(create.create_router, tags=['POST'])
+app.include_router(update.update_router, tags=['PUT'])
 
 generate_certificate()
+
 
 if __name__ == '__main__':
     uvicorn.run('main:app', host="127.0.0.1", port=5000, log_level="info", reload=True, ssl_keyfile="./key.pem", ssl_certfile="./cert.pem", workers=1)

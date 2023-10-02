@@ -10,8 +10,10 @@ create_router = APIRouter()
 async def create_signin(signin: Signin):
     collection = db['members']
     myquery = {'account': signin.account}
-    myCol = collection.find(myquery, {'_id': 0})
+    # myquery = {'account': 'yuxp0130@gmail.com'}
+    myCol = collection.find_one(myquery, {'_id': 0})
     result = False if myCol is None else True
+    print(result)
     return {"status": "Ok", "data": result}
 
 
