@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from schemas.schema import data_list_serializer
-from config.db import db
+from app.schemas.schema import data_list_serializer
+from app.config.db import db
 
 read_router = APIRouter()
 

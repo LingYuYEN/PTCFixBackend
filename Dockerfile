@@ -5,10 +5,12 @@ FROM tiangolo/uvicorn-gunicorn:python3.10
 COPY ./requirements.txt requirements.txt
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
-COPY ./cert.pem /cert.pem
-COPY ./key.pem /key.pem
+RUN pip install pyOpenSSL
 
-COPY ./app /app
+COPY ./app/cert.pem /cert.pem
+COPY ./app/key.pem /key.pem
+
+COPY ./app ./app
 
 EXPOSE 5000
 CMD ["uvicorn", "app.main:app", "--host", "127.0.0.1", "--port", "5000"]

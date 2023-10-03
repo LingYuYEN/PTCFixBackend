@@ -1,7 +1,7 @@
 from fastapi import APIRouter
-from schemas.schema import data_list_serializer, work_times
-from config.db import db
-from models.model import FixDetail, ModifyEngneer, FixUpdate, ModifyVisit
+from app.schemas.schema import data_list_serializer, work_times
+from app.config.db import db
+from app.models.model import FixDetail, ModifyEngneer, FixUpdate, ModifyVisit
 from bson.objectid import ObjectId
 
 update_router = APIRouter()
@@ -28,7 +28,7 @@ async def update_fix(fixUpdate: FixUpdate):
     collection.update_one(myQuery, newValues)
 
     start_time_db = collection.find_one({"_id": objInstance}, {'start_time': 1})
-    if fixUpdate.end_time is not '':
+    if fixUpdate.end_time != '':
         diff_time = work_times(start_time_db['start_time'], fixUpdate.end_time)
         collection.update_one(myQuery, {'$set': {
             'diff_time': str(diff_time),
