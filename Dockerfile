@@ -18,12 +18,12 @@ RUN pip install pyOpenSSL
 #
 #COPY ./app/cert.pem /etc/nginx/ssl.csr
 #COPY ./app/key.pem /etc/nginx/ssl.key
-COPY ./app.cert.pem /cert.pem
-COPY ./app.key.pem /key.pem
+COPY ./app/cert.pem /cert.pem
+COPY ./app/key.pem /key.pem
 
 EXPOSE 443
 
 COPY ./app /app
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "5000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5000"]
 #CMD ["uvicorn", "main:app", "--host=127.0.0.1" , "--reload" , "--port", "9000"]
