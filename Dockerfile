@@ -18,8 +18,8 @@ RUN pip install pyOpenSSL
 #
 #COPY ./app/cert.pem /etc/nginx/ssl.csr
 #COPY ./app/key.pem /etc/nginx/ssl.key
-COPY ./app/cert.pem /cert.pem
-COPY ./app/key.pem /key.pem
+COPY ./app.cert.pem /cert.pem
+COPY ./app.key.pem /key.pem
 
 EXPOSE 443
 
