@@ -7,8 +7,8 @@ RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
 RUN pip install pyOpenSSL
 
-RUN sudo apt-get update
-RUN sudo apt-get install nginx
+#RUN sudo apt-get update
+#RUN sudo apt-get install nginx
 #FROM nginx
 # Remove the default nginx.conf
 #RUN rm /etc/nginx/conf.d/default.conf
