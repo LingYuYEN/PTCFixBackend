@@ -2,8 +2,8 @@
 FROM tiangolo/uvicorn-gunicorn:python3.10
 
 #複製 requirements.txt進入 docker 內部
-#COPY ./requirements.txt requirements.txt
-#RUN pip install --no-cache-dir --upgrade -r requirements.txt
+COPY ./requirements.txt requirements.txt
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
 #
 #RUN pip install pyOpenSSL
 
