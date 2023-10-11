@@ -5,7 +5,7 @@ from fastapi.responses import JSONResponse
 # from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
 # from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from routes import read, create, update
-from app.config.ssl import generate_certificate
+from config.ssl import generate_certificate
 
 app = FastAPI()
 
