@@ -2,6 +2,8 @@
 FROM tiangolo/uvicorn-gunicorn:python3.10
 
 WORKDIR ./app
+
+COPY ./app /app
 #RUN pip3 install fastapi uvicorn
 #複製 requirements.txt進入 docker 內部
 COPY ./requirements.txt requirements.txt
@@ -25,7 +27,5 @@ RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
 #
 #EXPOSE 443
 
-COPY ./app /app
-
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--reload", "--port", "5000"]
+#CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--reload", "--port", "5000"]
 #CMD ["uvicorn", "main:app", "--host=127.0.0.1" , "--reload" , "--port", "5000"]
