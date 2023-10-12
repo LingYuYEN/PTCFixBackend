@@ -1,6 +1,7 @@
 #FROM tiangolo/uvicorn-gunicorn-fastapi:python3.7
 FROM tiangolo/uvicorn-gunicorn:python3.10
 
+WORKDIR ./app
 #RUN pip3 install fastapi uvicorn
 #複製 requirements.txt進入 docker 內部
 COPY ./requirements.txt requirements.txt
