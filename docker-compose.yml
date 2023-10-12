@@ -1,16 +1,15 @@
 # docker-compose.yml
 
-#version: '3'
+version: '3'
 #
-#services:
-#  fastapi:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
-#    volumes:
-#      - ./app:/app
-#    ports:
-#      - "5000:80"
+services:
+  fastapi:
+    build: .
+    container_name: "fastapi-container"
+    volumes:
+      - ./:/app
+    ports:
+      - "5000:80"
 #    depends_on:
 #      - nginx
 #

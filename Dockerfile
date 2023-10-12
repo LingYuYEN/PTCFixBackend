@@ -1,10 +1,11 @@
 #FROM tiangolo/uvicorn-gunicorn-fastapi:python3.7
 FROM tiangolo/uvicorn-gunicorn:python3.10
 
+#RUN pip3 install fastapi uvicorn
 #複製 requirements.txt進入 docker 內部
 COPY ./requirements.txt requirements.txt
-RUN pip install --no-cache-dir --upgrade -r requirements.txt
-#
+RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
+
 #RUN pip install pyOpenSSL
 
 #RUN sudo apt-get update
@@ -25,5 +26,5 @@ RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
 COPY ./app /app
 
-#CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5000"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--reload", "--port", "5000"]
 #CMD ["uvicorn", "main:app", "--host=127.0.0.1" , "--reload" , "--port", "5000"]
