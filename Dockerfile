@@ -1,14 +1,17 @@
-#FROM tiangolo/uvicorn-gunicorn-fastapi:python3.7
 FROM tiangolo/uvicorn-gunicorn:python3.10
 
-#RUN pip3 install fastapi uvicorn
+COPY ./app /app
+
+RUN apt-get update
+
+RUN apt-get install vim
+
 #複製 requirements.txt進入 docker 內部
 COPY ./requirements.txt requirements.txt
 RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
 
 #RUN pip install pyOpenSSL
 
-#RUN sudo apt-get update
 #RUN sudo apt-get install nginx
 #FROM nginx
 # Remove the default nginx.conf
