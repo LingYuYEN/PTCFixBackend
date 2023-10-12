@@ -4,7 +4,7 @@ COPY ./app /app
 
 RUN apt-get update
 
-RUN apt-get install vim
+RUN apt-get install vim -y
 
 #複製 requirements.txt進入 docker 內部
 COPY ./requirements.txt requirements.txt

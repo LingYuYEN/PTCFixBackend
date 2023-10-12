@@ -4,7 +4,7 @@ version: '3'
 #
 services:
   fastapi:
-    build: ./app
+    build: ./
     container_name: "fastapi_container"
     volumes:
       - ./app:/app
