@@ -5,9 +5,9 @@ version: '3'
 services:
   fastapi:
     build: ./app
-    container_name: "fastapi-container"
+    container_name: "fastapi_container"
     volumes:
-      - ./:/app
+      - ./app:/app
     ports:
       - "5000:80"
 #    depends_on:
