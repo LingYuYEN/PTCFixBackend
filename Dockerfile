@@ -26,5 +26,5 @@ RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
 
 COPY ./app /app
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--reload", "--port", "5000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--reload", "--port", "5000"]
 #CMD ["uvicorn", "main:app", "--host=127.0.0.1" , "--reload" , "--port", "5000"]
