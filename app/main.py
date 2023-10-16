@@ -32,6 +32,6 @@ app.include_router(update.update_router, tags=['PUT'])
 # generate_certificate()
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=8000)
     # uvicorn.run('main:app', host="0.0.0.0", port=5000, log_level="info", reload=True, ssl_keyfile="./key.pem", ssl_certfile="./cert.pem", workers=1)
     # uvicorn.run('main:app', host="0.0.0.0", port=5000, log_level="info", reload=True, workers=1)

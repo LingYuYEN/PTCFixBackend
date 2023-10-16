@@ -35,7 +35,7 @@ RUN pip install --upgrade pip
 #COPY ./app/cert.pem /cert.pem
 #COPY ./app/key.pem /key.pem
 #
-EXPOSE 5000
+EXPOSE 8000
 
 #CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--reload", "--port", "5000"]
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0" , "--reload" , "--port", "5000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0" , "--reload" , "--port", "8000"]
