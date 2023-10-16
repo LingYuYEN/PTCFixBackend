@@ -6,6 +6,8 @@ COPY . /app
 # Set the working directory
 WORKDIR /app
 
+RUN pip install --upgrade pip
+
 #複製 requirements.txt進入 docker 內部
 COPY ./requirements.txt requirements.txt
 RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
@@ -13,8 +15,6 @@ RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
 #RUN apt-get update
 
 #RUN apt-get install vim -y
-
-RUN pip install --upgrade pip
 
 #RUN pip install pyOpenSSL
 
