@@ -31,4 +31,5 @@ COPY cert.pem /app/cert.pem
 COPY key.pem /app/key.pem
 
 #CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--reload", "--port", "5000"]
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0" , "--reload" , "--port", "5000", "--ssl-keyfile", "/app/key.pem", "--ssl-certfile", "/app/cert.pem"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "5000", "--ssl-keyfile", "/app/key.pem", "--ssl-certfile", "/app/cert.pem"]
+#CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0" , "--reload" , "--port", "5000", "--ssl-keyfile", "/app/key.pem", "--ssl-certfile", "/app/cert.pem"]
