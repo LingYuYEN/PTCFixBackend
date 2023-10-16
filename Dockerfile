@@ -24,7 +24,7 @@ RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
 RUN apt-get update && apt-get install -y openssl
 
 # 生成自签名的证书和私钥
-RUN openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365
+RUN -it openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365
 
 # 将证书和私钥复制到镜像中
 COPY cert.pem /app/cert.pem
