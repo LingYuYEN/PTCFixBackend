@@ -1,4 +1,8 @@
-FROM tiangolo/uvicorn-gunicorn:python3.10
+#FROM tiangolo/uvicorn-gunicorn:python3.10
+FROM python:3.10
+
+# 安装 FastAPI 和 Uvicorn
+RUN pip install fastapi uvicorn
 
 # Copy your FastAPI code to the image
 COPY . /app
@@ -9,8 +13,8 @@ WORKDIR /app
 RUN pip install --upgrade pip
 
 #複製 requirements.txt進入 docker 內部
-COPY ./requirements.txt requirements.txt
-RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
+#COPY ./requirements.txt requirements.txt
+#RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
 
 #RUN apt-get update
 
