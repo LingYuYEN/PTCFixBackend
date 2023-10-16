@@ -5,10 +5,10 @@ FROM tiangolo/uvicorn-gunicorn:python3.10
 #RUN pip install fastapi uvicorn
 
 # Copy your FastAPI code to the image
-COPY . /app
+COPY ./app /app
 
 # Set the working directory
-WORKDIR /app
+#WORKDIR /app
 
 RUN pip install --upgrade pip
 
@@ -31,5 +31,5 @@ COPY cert.pem /app/cert.pem
 COPY key.pem /app/key.pem
 
 #CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--reload", "--port", "5000"]
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "5000", "--ssl-keyfile", "/app/key.pem", "--ssl-certfile", "/app/cert.pem"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5000", "--ssl-keyfile", "/app/key.pem", "--ssl-certfile", "/app/cert.pem"]
 #CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0" , "--reload" , "--port", "5000", "--ssl-keyfile", "/app/key.pem", "--ssl-certfile", "/app/cert.pem"]
