@@ -1,8 +1,8 @@
-#FROM tiangolo/uvicorn-gunicorn:python3.10
-FROM python:3.10
+FROM tiangolo/uvicorn-gunicorn:python3.10
+#FROM python:3.10
 
 # 安装 FastAPI 和 Uvicorn
-RUN pip install fastapi uvicorn
+#RUN pip install fastapi uvicorn
 
 # Copy your FastAPI code to the image
 COPY . /app
