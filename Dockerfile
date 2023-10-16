@@ -27,7 +27,7 @@ COPY . /app
 #COPY ./app/cert.pem /cert.pem
 #COPY ./app/key.pem /key.pem
 #
-EXPOSE 5000
+#EXPOSE 5000
 
 #CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--reload", "--port", "5000"]
-CMD ["uvicorn", "main:app", "--host=127.0.0.1" , "--reload" , "--port", "5000"]
+#CMD ["uvicorn", "main:app", "--host=127.0.0.1" , "--reload" , "--port", "5000"]
