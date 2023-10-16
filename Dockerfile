@@ -20,22 +20,15 @@ RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
 
 #RUN apt-get install vim -y
 
-#RUN pip install pyOpenSSL
+# 安装 OpenSSL
+RUN apt-get update && apt-get install -y openssl
 
-#RUN sudo apt-get install nginx
-#FROM nginx
-# Remove the default nginx.conf
-#RUN rm /etc/nginx/conf.d/default.conf
+# 生成自签名的证书和私钥
+RUN openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365
 
-# Replace with our own nginx.conf
-#COPY nginx.conf /etc/nginx/conf.d/
-#
-#COPY ./app/cert.pem /etc/nginx/ssl.csr
-#COPY ./app/key.pem /etc/nginx/ssl.key
-#COPY ./app/cert.pem /cert.pem
-#COPY ./app/key.pem /key.pem
-#
-#EXPOSE 8000
+# 将证书和私钥复制到镜像中
+COPY cert.pem /app/cert.pem
+COPY key.pem /app/key.pem
 
 #CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--reload", "--port", "5000"]
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0" , "--reload" , "--port", "5000"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0" , "--reload" , "--port", "5000", "--ssl-keyfile", "/app/key.pem", "--ssl-certfile", "/app/cert.pem"]
