@@ -2,15 +2,15 @@ FROM tiangolo/uvicorn-gunicorn:python3.10
 
 COPY . /app
 
-RUN apt-get update
+#RUN apt-get update
 
-RUN apt-get install vim -y
+#RUN apt-get install vim -y
 
-RUN pip install --upgrade pip
+#RUN pip install --upgrade pip
 
 #複製 requirements.txt進入 docker 內部
-COPY ./requirements.txt requirements.txt
-RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
+#COPY ./requirements.txt requirements.txt
+#RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
 
 #RUN pip install pyOpenSSL
 
@@ -30,4 +30,4 @@ RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
 #EXPOSE 443
 
 #CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--reload", "--port", "5000"]
-#CMD ["uvicorn", "main:app", "--host=127.0.0.1" , "--reload" , "--port", "5000"]
+CMD ["uvicorn", "main:app", "--host=127.0.0.1" , "--reload" , "--port", "5000"]
