@@ -35,7 +35,7 @@ RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
 #COPY ./app/cert.pem /cert.pem
 #COPY ./app/key.pem /key.pem
 #
-EXPOSE 8000
+#EXPOSE 8000
 
 #CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--reload", "--port", "5000"]
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0" , "--reload" , "--port", "8000"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0" , "--reload" , "--port", "5000"]
