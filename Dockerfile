@@ -5,16 +5,16 @@ FROM python:3.10
 RUN pip install fastapi uvicorn
 
 # Copy your FastAPI code to the image
-COPY ./app /app
+COPY . /app
 
 # Set the working directory
-#WORKDIR /app
+WORKDIR /app
 
 RUN pip install --upgrade pip
 
 #複製 requirements.txt進入 docker 內部
-#COPY ./requirements.txt requirements.txt
-#RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
+COPY ./requirements.txt requirements.txt
+RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
 
 #RUN apt-get update
 
