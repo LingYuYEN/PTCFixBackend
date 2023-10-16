@@ -1,6 +1,6 @@
 FROM tiangolo/uvicorn-gunicorn:python3.10
 
-COPY ./app /app
+COPY . /app
 
 RUN apt-get update
 
