@@ -1,7 +1,7 @@
 from fastapi import APIRouter
-from app.schemas.schema import data_list_serializer, work_times
-from app.config.db import db
-from app.models.model import FixDetail, ModifyEngneer, FixUpdate, ModifyVisit
+from schemas.schema import data_list_serializer, work_times
+from config.db import db
+from models.model import FixDetail, ModifyEngneer, FixUpdate, ModifyVisit
 from bson.objectid import ObjectId
 
 update_router = APIRouter()

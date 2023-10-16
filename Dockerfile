@@ -1,11 +1,11 @@
-#FROM tiangolo/uvicorn-gunicorn:python3.10
-FROM python:3.10
+FROM tiangolo/uvicorn-gunicorn:python3.10
+#FROM python:3.10
 
 # 安装 FastAPI 和 Uvicorn
 #RUN pip install fastapi uvicorn
 
 # Copy your FastAPI code to the image
-COPY . /app
+COPY ./app /app
 
 # Set the working directory
 #WORKDIR /app
@@ -16,9 +16,9 @@ COPY . /app
 COPY ./requirements.txt requirements.txt
 RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
 
-RUN apt-get update
+#RUN apt-get update
 
-RUN apt-get install vim -y
+#RUN apt-get install vim -y
 
 # 安装 OpenSSL
 #RUN apt-get update && apt-get install -y openssl

@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routes import read, create, update
+from routes import read, create, update
 # from config.ssl import generate_certificate
 # from config.db import db
 # from models.model import Signin
