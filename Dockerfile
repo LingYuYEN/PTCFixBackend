@@ -1,6 +1,10 @@
 FROM tiangolo/uvicorn-gunicorn:python3.10
 
-COPY ./app /app
+# Copy your FastAPI code to the image
+COPY . /app
+
+# Set the working directory
+WORKDIR /app
 
 #RUN apt-get update
 
@@ -27,7 +31,7 @@ RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
 #COPY ./app/cert.pem /cert.pem
 #COPY ./app/key.pem /key.pem
 #
-#EXPOSE 5000
+EXPOSE 5000
 
 #CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--reload", "--port", "5000"]
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0" , "--reload" , "--port", "5000"]
