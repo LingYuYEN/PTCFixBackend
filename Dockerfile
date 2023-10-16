@@ -9,8 +9,8 @@ COPY . /app
 #RUN pip install --upgrade pip
 
 #複製 requirements.txt進入 docker 內部
-#COPY ./requirements.txt requirements.txt
-#RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
+COPY ./requirements.txt requirements.txt
+RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
 
 #RUN pip install pyOpenSSL
 
